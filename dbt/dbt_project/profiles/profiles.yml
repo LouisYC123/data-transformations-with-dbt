@@ -3,10 +3,10 @@ dbt_project:
   outputs:
     dev:
       type: postgres
-      host: postgres_container
+      host: pg_container
       user: postgres
       password: postgres
       port: 5432
-      dbname: dbt_dev
+      dbname: globalmarket
       schema: raw_data
       threads: 1
