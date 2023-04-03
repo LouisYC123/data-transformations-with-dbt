@@ -4,7 +4,7 @@ services:
 
   pg_db:
     container_name: pg_container
-    image: postgres:15
+    image: postgres:13
     restart: always
     env_file:
       - ./.env
@@ -47,6 +47,8 @@ services:
     image: dbt-dev
     env_file:
       - ./.env
+    volumes:
+      - ./dbt/dbt_project:/home/dbt_project
     depends_on:
       pg_db:
         condition: service_healthy
