@@ -8,5 +8,5 @@ dbt_project:
       password: postgres
       port: 5432
       dbname: globalmarket
-      schema: raw_data
+      schema: analytics
       threads: 1
