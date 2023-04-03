@@ -25,7 +25,11 @@ for filename, df in datasets.items():
     filename = os.path.basename(filename).split('.')[0]
     # Load
     print(f'Loading {filename} data')
-    df.to_sql(
-        f'raw_{filename}_data', engine, index=False, if_exists="replace", schema=POSTGRES_SCHEMA
-    )
-print('load complete')
+    try:
+        df.to_sql(
+            f'raw_{filename}_data', engine, index=False, if_exists="fail", schema=POSTGRES_SCHEMA
+        )
+        print('load complete')
+    except ValueError:
+        print('Already loaded')
+
