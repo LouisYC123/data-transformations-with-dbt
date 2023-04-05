@@ -27,7 +27,7 @@ for filename, df in datasets.items():
     df['load_timestamp'] = datetime.now()
     # Load
     print(f'Loading {filename} data')
-    try:
+    try: # using try/catch here as there may be views depending on table so would error if if_exists="replace"
         df.to_sql(
             f'raw_{filename}_data', engine, index=False, if_exists="fail", schema=POSTGRES_SCHEMA
         )

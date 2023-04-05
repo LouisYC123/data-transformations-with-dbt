@@ -1,0 +1,31 @@
+version: 2
+
+sources:
+  - name: globalmarket
+    database: globalmarket
+    description: a clone of the Snowflake database
+    schema: raw_data
+    tables:
+      - name: raw_customers_data
+        description: raw customers table
+        loaded_at_field: load_timestamp
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
+        columns:
+          - name: CustomerID
+            description: Unique identifier for a customer
+          - name: CustomerID
+            description: Unique identifier for a customer
+      - name: raw_orders_data
+        description: raw orders table
+        loaded_at_field: load_timestamp
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
+      - name: raw_product_data
+        description: raw product table
+        loaded_at_field: load_timestamp
+        freshness:
+          warn_after: {count: 12, period: hour}
+          error_after: {count: 24, period: hour}
