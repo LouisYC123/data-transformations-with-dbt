@@ -25,6 +25,7 @@ SELECT
     , p.category
     , p.product_name
     , p.sub_category
+    , {{ markup('order_selling_price', 'order_cost_price' ) }} AS markup_pct
 FROM 
     orders o
     LEFT JOIN customers c ON o.customer_id = c.customer_id
