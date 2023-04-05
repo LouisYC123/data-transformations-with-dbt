@@ -8,6 +8,10 @@ Postgres 13 is the highest version you can use here due to an issue with dbt and
 
 
 
-### dvt commands: 
+### dbt commands: 
 dbt --profiles-dir profiles docs generate
 dbt --profiles-dir profiles docs serve
+
+
+### Tests
+customer_id - unique, not null

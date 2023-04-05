@@ -2,6 +2,7 @@
 import pandas as pd
 import os
 import zipfile
+from datetime import datetime
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
@@ -23,9 +24,10 @@ datasets = {f:pd.read_csv(zf.open(f)) for f in zf.namelist() if 'MACOSX' not in 
 print('Extract Complete')
 for filename, df in datasets.items():
     filename = os.path.basename(filename).split('.')[0]
+    df['load_timestamp'] = datetime.now()
     # Load
     print(f'Loading {filename} data')
-    try:
+    try: # using try/catch here as there may be views depending on table so would error if if_exists="replace"
         df.to_sql(
             f'raw_{filename}_data', engine, index=False, if_exists="fail", schema=POSTGRES_SCHEMA
         )

@@ -1,5 +1,3 @@
-{{ config(materialized='table') }}
-
 WITH source as (
     SELECT * FROM {{ source('globalmarket', 'raw_customers_data') }}
 )
