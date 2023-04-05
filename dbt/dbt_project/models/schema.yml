@@ -1,0 +1,101 @@
+version: 2
+
+models:
+  # Sources
+  - name: src_customer 
+    description: A clone of the raw customer table with column names cleaned
+    columns:
+      - name: customer_id
+        description: Unique identifier for a customer
+        tests: 
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: customer_name
+        description: The customers name
+      - name: segment
+        description: '{{ doc("segments") }}'
+      - name: country
+        description: Country where the customer is based
+      - name: state
+        description: Stae where the customer is based
+  - name: src_order
+    description: A clone of the raw orders table with column names cleaned
+    columns:
+      - name: order_id
+        description: Unique identifier for an order
+        tests:
+          - unique:
+              config:
+                severity: warn
+          - not_null:
+              config:
+                severity: warn
+      - name: order_date
+        description: Date when the order was placed
+      - name: ship_date
+        description: Date when the order was shipped to the customer
+      - name: customer_id
+        description: Foreign Key to the Customer table. Unique identifier for a customer.
+      - name: product_id
+        description: Foreign Key to the Product table. Unique identifier for a product.
+      - name: order_cost_price
+        description: Cost of the ordered product in USD ($)
+      - name: order_selling_price
+        description: Amount the ordered product was sold for in USD ($)
+      - name: ship_mode
+        tests: 
+          - accepted_values:
+              values:
+                - First Class
+                - Same Day
+                - Second Class 
+                - Standard Class
+              config:
+                severity: warn
+  - name: src_product
+    description: A clone of the raw product table with column names cleaned
+    columns:
+      - name: category
+        description: Designates wether the product is of type Furniture, Technology or Office
+      - name: product_id
+        description: Unique identifier for a product
+      - name: product_name
+        description: The products name
+      - name: sub_category
+        description: The sub-category that further defines the product type
+  # Stages
+  - name: stg_orders
+    description: Denormalized Fact table for orders with one unique order per row.
+    columns:
+      - name: order_id
+        description: the primary key for stg_orders
+      - name: order_date
+        description: Date when the order was placed
+      - name: ship_date
+        description: Date when the order was shipped to the customer
+      - name: ship_mode
+        description: '{{doc("ship_mode")}}'
+      - name: order_selling_price
+        description: Amount the ordered product was sold for in USD ($)
+      - name: order_profit
+        description: Selling price minus the cost price in USD ($)
+      - name: customer_name
+        description: The customers name
+      - name: segment
+        description: '{{ doc("segments") }}'
+      - name: country
+        description: Country where the customer is based
+      - name: product_id
+        description: Unique identifier for a product
+      - name: category
+        description: Designates wether the product is of type Furniture, Technology or Office
+      - name: product_name
+        description: The ordered products name
+      - name: sub_category
+        description: The sub-category that further defines the product type
+      - name: customer_id
+        description: Unique identifier for a customer
