@@ -67,7 +67,7 @@ src_models (source data) --> stg_models (staging tables) --> intermediate_models
 1. **Set up sources and src models**  
   - Use a sources/source.yml to define your source data  
   - Create src_.sql models in models/sources/. These can include light transformations such as column renaming or data type conversions  
-2. **Set up stg for light transformations**  
+2. **Set up stg models for transformations**  
   - Create stg_.sql models in models/staging/ . These can be used to perform initial / layer 1 transformations to start getting your data into the shape you need.  
   - Use CTEs and jinja templates to reference your sources (see models in models/staging/ ).  
   - You can make use of the dbt utility package ```dbt_utils``` to help set up custom unique identifiers that can be used as Primary Keys if needed.  
