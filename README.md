@@ -27,6 +27,8 @@ This will build images and spin up four containers
 
 **Note:** This may take several minutes the first time you build the images.  
 
+The python_extractload service will wait for the pg_db to be up and healthy, before extracting the data from the zipped file in extract_load/data/ and loading it to the postgres ```raw_data``` database.
+
 Once dbt run has completed (you will get an message from the dbt container stating  ```Done``` ), you can work inside the dbt container ('attach container' if using VS Code)  
 
 **Note:** Postgres 13 is the highest version you can use here due to an issue with dbt and SCRAM in dockerised postgres on mac1. Until a fix is available, please stick with Postgres 13 as defined in the dockerfile  
