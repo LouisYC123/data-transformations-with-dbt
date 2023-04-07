@@ -75,5 +75,3 @@ src_models (source data) --> stg_models (staging tables) --> intermediate_models
  - Documentation is a vital part of any data project. You should take the approach that no project is finished until it has documentation. This is as much for your own benefit as it is for your colleagues. Revisiting code you wrote 6 months ago that has no documentation is a pain in the a**.
  - You can add tabular documentation by creating markdown files and reference them in your documentation. (See models/staging/ship_mode_desc.md and schema.yml) 
 
-
-
