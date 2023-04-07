@@ -54,23 +54,23 @@ src_models (source data) --> stg_models (staging tables) --> intermediate_models
 1. **Set up sources and src models**  
   - Use a sources/source.yml to define your source data  
   - Create src_.sql models in models/sources/. These can include light transformations such as column renaming or data type conversions  
-2. Set up stg for light transformations  
+2. **Set up stg for light transformations**  
   - Create stg_.sql models in models/staging/ . These can be used to perform initial / layer 1 transformations to start getting your data into the shape you need.  
   - Use CTEs and jinja templates to reference your sources (see models in models/staging/ ).  
   - You can make use of the dbt utility package ```dbt_utils``` to help set up custom unique identifiers that can be used as Primary Keys if needed.  
   - To make use of packages, you need a yml file named packages.yml that lists the packages you want installed. Vist ```https://hub.getdbt.com``` to see available packages.  
   - Jinja is your friend. One of the most powerful features of dbt is its leveraging of jinja templating to enhance what you can do with SQL. This repo will only scratch the  surface of Jinja templating (see both stg_ models for examples).  
-3. Set up intermediat models (as many as needed)  
+3. **Set up intermediate models (as many as needed)**  
   - These can be used to perform any layer 2 transformations that might be needed.  
-4. Set up data marts  
+4. **Set up data marts**  
   - These represent the final models and convey the data that is required by the end user for their analysis / BI Tools.   
-5. Create a schema.yml to add documentation and generic tests to your models (More on this below).  
-6. Define the type of materialization (view, table etc) you want your models deployed as in your project yaml (see dbt_project.yml)  
-7. Set up testing for source data  
+5. **Create a schema.yml to add documentation and generic tests to your models (More on this below).**  
+6. **Define the type of materialization (view, table etc) you want your models deployed as in your project yaml (see dbt_project.yml)**  
+7. **Set up testing for source data**  
   - Once you have a good idea of how you want your staging and mart models to behave, you should ensure consistency and data quality by using tests. Tests will ensure that all future data entering the data warehouse conforms to business logic and expectations. This helps prevent data quality issues creeping into your data marts and ensures confidence in the data used for downstream analysis.
   - You can define dbt generic test (null value checks, uniqueness, accepted values etc) in the schema.yml.
   - You can defince custom singular tests by creating sql scripts in the ```tests``` folder. A generic test should return an empty result set to pass. If any records are returned by the generic test query, they are considered failing records.  
-8. Create Documentation.
+8. **Create Documentation.**  
  - Documentation is added by adding a  ```description:``` line to your schema.yml.  
  - Documentation is a vital part of any data project. You should take the approach that no project is finished until it has documentation. This is as much for your own benefit as it is for your colleagues. Revisiting code you wrote 6 months ago that has no documentation is a pain in the a**.
  - You can add tabular documentation by creating markdown files and reference them in your documentation. (See models/staging/ship_mode_desc.md and schema.yml) 
