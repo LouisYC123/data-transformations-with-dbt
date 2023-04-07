@@ -84,7 +84,7 @@ src_models (source data) --> stg_models (staging tables) --> intermediate_models
   - You can define dbt generic test (null value checks, uniqueness, accepted values etc) in the schema.yml.
   - You can defince custom singular tests by creating sql scripts in the ```tests``` folder. A generic test should return an empty result set to pass. If any records are returned by the generic test query, they are considered failing records.  
 8. **Create Documentation.**  
- - Documentation is added by adding a  ```description:``` line to your schema.yml.  
+ - Documentation is added by adding  ```description:``` lines to your tables and columns in schema.yml.  
  - Documentation is a vital part of any data project. You should take the approach that no project is finished until it has documentation. This is as much for your own benefit as it is for your colleagues. Revisiting code you wrote 6 months ago that has no documentation is a pain in the a**.
  - You can add tabular documentation by creating markdown files and reference them in your documentation. (See models/staging/ship_mode_desc.md and schema.yml) 
 
