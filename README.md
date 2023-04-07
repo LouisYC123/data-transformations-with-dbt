@@ -2,7 +2,7 @@
 A gentle introduction to using dbt for the T in ELT
 
 ## Summary
-This repo serves as an introduction to using dbt for data transformations. Data for a Fictional commerce company is loaded to a dockerized postgres instance, and dbt is then used to deploy source, staging and data mart models. A high-level guide to the dbt workflow used in this project can be found in the below 'Using dbt' section of this README.  
+This repo serves as an introduction to using dbt for data transformations. Data for a fictional commerce company is loaded to a dockerized postgres instance, and dbt is then used to deploy source, staging and data mart models. A high-level guide to the dbt workflow used in this project can be found in the below 'Using dbt' section of this README.  
 
 This example project follows the ELT paradigm, where data is extracted and loaded into a data warehouse, followed by data transformations conducted within the data warehouse. dbt is an excellent tool for the Transformations step in an ELT workflow as it brings many of the principles of software engineering (version control, testing etc) into the world of SQL data modelling.
 
