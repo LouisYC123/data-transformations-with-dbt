@@ -17,10 +17,10 @@ This example project follows the ELT paradigm, where data is extracted and loade
 1. Clone this repo, and create a .env file in the root of the folder with:  
 
 ```
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=postgres
-PGADMIN_DEFAULT_EMAIL=admin@admin.com
-PGADMIN_DEFAULT_PASSWORD=admin
+POSTGRES_USER=<username_of_your_choice>
+POSTGRES_PASSWORD=<password_of_your_choice>
+PGADMIN_DEFAULT_EMAIL=<email_of_your_choice> # you can use anything here. e.g - admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=<password_of_your_choice>
 PGADMIN_LISTEN_PORT=5050  
 ```   
 
