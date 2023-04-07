@@ -24,7 +24,6 @@ PGADMIN_DEFAULT_PASSWORD=<password_of_your_choice>
 PGADMIN_LISTEN_PORT=5050  
 ```   
 
-feel free to replace these values as you see fit.
 
 2. Open up a terminal and run:
 
