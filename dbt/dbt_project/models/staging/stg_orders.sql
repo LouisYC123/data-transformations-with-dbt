@@ -1,17 +1,18 @@
-WITH orders as (
+WITH orders AS (
     SELECT * FROM {{ ref( 'src_order') }}
 ),
 
-customers as (
+customers AS (
     SELECT * FROM {{ ref( 'src_customer') }}
 ),
 
-products as (
+products AS (
     SELECT * FROM {{ ref( 'src_product') }}
 )
 
 SELECT
-    o.order_id
+    {{ dbt_utils.generate_surrogate_key(['o.order_id', 'c.customer_id', 'p.product_id'])}} AS sk_order_id
+    , o.order_id
     , o.order_date
     , o.ship_date
     , o.ship_mode
