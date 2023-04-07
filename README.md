@@ -14,7 +14,18 @@ This example project follows the ELT paradigm, where data is extracted and loade
 
 ## Setup
 
-Clone this repo, open up a terminal and run:
+1. Clone this repo, and create a .env file in the root of the folder with:  
+
+```
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=postgres
+PGADMIN_DEFAULT_EMAIL=admin@admin.com
+PGADMIN_DEFAULT_PASSWORD=admin
+PGADMIN_LISTEN_PORT=5050  
+```
+feel free to replace these values as you see fit.
+
+2. Open up a terminal and run:
 
 ``` docker compose build && docker compose up ```
 
@@ -29,7 +40,7 @@ This will build images and spin up four containers
 
 The python_extractload service will wait for the pg_db to be up and healthy, before extracting the data from the zipped file in extract_load/data/ and loading it to the postgres ```raw_data``` database.
 
-Once dbt run has completed (you will get an message from the dbt container stating  ```Done``` ), you can work inside the dbt container ('attach container' if using VS Code)  
+3. Once dbt run has completed (you will get an message from the dbt container stating  ```Done``` ), you can work inside the dbt container ('attach container' if using VS Code)  
 
 **Note:** Postgres 13 is the highest version you can use here due to an issue with dbt and SCRAM in dockerised postgres on mac1. Until a fix is available, please stick with Postgres 13 as defined in the dockerfile  
 
