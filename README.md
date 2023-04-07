@@ -51,7 +51,7 @@ Models are the core feature of dbt. Models are simply SQL select statements. The
 src_models (source data) --> stg_models (staging tables) --> intermediate_models (optional / as required) --> mart_models (data marts ready for consumption)  
 
 
-1. Set up sources and src models  
+1. **Set up sources and src models**  
   - Use a sources/source.yml to define your source data  
   - Create src_.sql models in models/sources/. These can include light transformations such as column renaming or data type conversions  
 2. Set up stg for light transformations  
