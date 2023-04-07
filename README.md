@@ -9,7 +9,8 @@ Postgres 13 is the highest version you can use here due to an issue with dbt and
 
 
 ### dbt commands: 
-dbt --profiles-dir profiles docs generate
+dbt --profiles-dir profiles docs generate  
+
 dbt --profiles-dir profiles docs serve
 
 
