@@ -22,7 +22,8 @@ POSTGRES_PASSWORD=postgres
 PGADMIN_DEFAULT_EMAIL=admin@admin.com
 PGADMIN_DEFAULT_PASSWORD=admin
 PGADMIN_LISTEN_PORT=5050  
-```
+```   
+
 feel free to replace these values as you see fit.
 
 2. Open up a terminal and run:
